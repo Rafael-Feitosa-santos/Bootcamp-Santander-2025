@@ -1,0 +1,21 @@
+[2025-07-09 14:19:26] Função 'criar_cliente' executada com argumentos ([<PessoaFisica: ('Rafael', '1')>],) e {}. Retornou None
+[2025-07-09 11:20:16] Função 'criar_cliente' executada com argumentos ([<PessoaFisica: ('Rafael', '1')>],) e {}. Retornou None
+[2025-07-09 11:26:29] Função 'criar_conta' executada com argumentos (1, [<PessoaFisica: ('Rafael', '1')>], [<ContaCorrente: ('0001', '1', 'Rafael')>]) e {}. Retornou None
+[2025-07-09 11:26:44] Função 'depositar' executada com argumentos ([<PessoaFisica: ('Rafael', '1')>],) e {}. Retornou None
+[2025-07-09 11:29:44] Função 'criar_conta' executada com argumentos (1, [], []) e {}. Retornou None
+[2025-07-09 11:29:58] Função 'criar_cliente' executada com argumentos ([<PessoaFisica: ('Rafael', '1')>],) e {}. Retornou None
+[2025-07-09 11:30:06] Função 'criar_conta' executada com argumentos (1, [<PessoaFisica: ('Rafael', '1')>], [<ContaCorrente: ('0001', '1', 'Rafael')>]) e {}. Retornou None
+[2025-07-09 11:30:20] Função 'depositar' executada com argumentos ([<PessoaFisica: ('Rafael', '1')>],) e {}. Retornou None
+[2025-07-09 11:35:22] Função 'criar_cliente' executada. Retornou None
+[2025-07-09 11:35:30] Função 'criar_conta' executada. Retornou None
+[2025-07-09 11:35:40] Função 'depositar' executada. Retornou None | Valor: R$ 400.00
+[2025-07-09 11:39:03] Função 'criar_cliente' executada.
+[2025-07-09 11:39:22] Função 'criar_conta' executada.
+[2025-07-09 11:39:31] Função 'depositar' executada.
+Depósito registrado: R$ 1500.00
+[2025-07-09 11:39:53] Função 'sacar' executada.
+Saque registrado: R$ 500.00
+[2025-07-09 11:43:49] Função 'criar_cliente' executada.
+[2025-07-09 11:44:29] Função 'criar_cliente' executada.
+[2025-07-09 11:44:52] Função 'criar_cliente' executada.
+[2025-07-09 11:45:14] Função 'criar_conta' executada.
