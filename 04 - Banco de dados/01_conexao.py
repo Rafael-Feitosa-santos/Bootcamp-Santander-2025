@@ -28,6 +28,11 @@ def atualizar_registro(nome, email, id):
 
 def excluir_registro(id):
     cursor.execute("DELETE FROM clientes WHERE id=%s;", (id,))
+    excluido = cursor.fetchone()
+    if excluido:
+        print(f"Registro com ID {id} excluído com sucesso!")
+    else:
+        print(f"Nenhum registro encontrado com ID {id}.")
     conexao.commit()
 
 
@@ -43,15 +48,17 @@ def recuperar_cliente(id):
 
 def listar_clientes():
     cursor.execute("SELECT * FROM clientes ORDER BY nome DESC;")
-    return cursor.fetchall()
+    clientes = cursor.fetchall()
+    for cliente in clientes:
+        print(f"ID: {cliente['id']}")
+        print(f"Nome: {cliente['nome']}")
+        print(f"E-mail: {cliente['email']}")
+        print("-" * 25)
+    return clientes
 
 
 criar_tabela()
 
 # Teste simples
 inserir_registro("João", "joao@email.com")
-clientes = listar_clientes()
-for cliente in clientes:
-    print(f"ID: {cliente['id']}")
-    print(f"Nome: {cliente['nome']}")
-    print(f"E-mail: {cliente['email']}")
+listar_clientes()
