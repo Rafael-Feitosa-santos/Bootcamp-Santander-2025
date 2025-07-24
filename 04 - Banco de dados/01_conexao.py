@@ -22,8 +22,21 @@ def inserir_registro(nome, email):
 
 
 def atualizar_registro(nome, email, id):
-    cursor.execute("UPDATE clientes SET nome=%s, email=%s WHERE id=%s;", (nome, email, id))
-    conexao.commit()
+    try:
+        cursor.execute(
+            "UPDATE clientes SET nome = %s, email = %s WHERE id = %s;",
+            (nome, email, id)
+        )
+
+        if cursor.rowcount == 0:
+            print(f"Nenhum registro com ID {id} foi encontrado.")
+        else:
+            conexao.commit()
+            print(f"Registro com ID {id} atualizado com sucesso!")
+
+    except Exception as e:
+        conexao.rollback()
+        print(f"Erro ao atualizar o registro: {e}")
 
 
 def excluir_registro(id):
