@@ -40,12 +40,14 @@ def atualizar_registro(nome, email, id):
 
 
 def excluir_registro(id):
-    cursor.execute("DELETE FROM clientes WHERE id=%s;", (id,))
+    cursor.execute("DELETE FROM clientes WHERE id=%s RETURNING id;", (id,))
     excluido = cursor.fetchone()
+
     if excluido:
         print(f"Registro com ID {id} excluído com sucesso!")
     else:
         print(f"Nenhum registro encontrado com ID {id}.")
+
     conexao.commit()
 
 
