@@ -58,7 +58,17 @@ def inserir_muitos(dados):
 
 def recuperar_cliente(id):
     cursor.execute("SELECT id, nome, email FROM clientes WHERE id=%s;", (id,))
-    return cursor.fetchone()
+    cliente = cursor.fetchone()
+
+    if cliente:
+        print(f"ID: {cliente['id']}")
+        print(f"Nome: {cliente['nome']}")
+        print(f"E-mail: {cliente['email']}")
+        print("-" * 25)
+    else:
+        print(f"Nenhum cliente encontrado com ID {id}.")
+
+    return cliente
 
 
 def listar_clientes():
