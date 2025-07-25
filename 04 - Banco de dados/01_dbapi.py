@@ -19,6 +19,7 @@ def criar_tabela():
 def inserir_registro(nome, email):
     cursor.execute("INSERT INTO clientes (nome, email) VALUES (%s, %s);", (nome, email))
     conexao.commit()
+    print(f"Registro criado para {nome} com o e-mail {email}.")
 
 
 def atualizar_registro(nome, email, id):
@@ -42,18 +43,17 @@ def atualizar_registro(nome, email, id):
 def excluir_registro(id):
     cursor.execute("DELETE FROM clientes WHERE id=%s RETURNING id;", (id,))
     excluido = cursor.fetchone()
-
     if excluido:
         print(f"Registro com ID {id} excluído com sucesso!")
     else:
         print(f"Nenhum registro encontrado com ID {id}.")
-
     conexao.commit()
 
 
 def inserir_muitos(dados):
     cursor.executemany("INSERT INTO clientes (nome, email) VALUES (%s, %s);", dados)
     conexao.commit()
+    print(f"{len(dados)} registros criados com sucesso.")
 
 
 def recuperar_cliente(id):
@@ -62,7 +62,7 @@ def recuperar_cliente(id):
 
 
 def listar_clientes():
-    cursor.execute("SELECT * FROM clientes ORDER BY nome DESC;")
+    cursor.execute("SELECT * FROM clientes ORDER BY nome;")
     clientes = cursor.fetchall()
     for cliente in clientes:
         print(f"ID: {cliente['id']}")
@@ -76,4 +76,13 @@ criar_tabela()
 
 # Teste simples
 inserir_registro("João", "joao@email.com")
+listar_clientes()
+
+clientes = [
+    ("Rafael", "rafael@email.com"),
+    ("Charlie", "charlie@email.com")
+]
+
+inserir_muitos(clientes)
+
 listar_clientes()
